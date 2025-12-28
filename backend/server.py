@@ -67,6 +67,12 @@ async def get_status_checks():
     
     return status_checks
 
+# Include restaurant routes
+api_router.include_router(menu.router, tags=["menu"])
+api_router.include_router(reviews.router, tags=["reviews"])
+api_router.include_router(busy_times.router, tags=["busy-times"])
+api_router.include_router(gallery.router, tags=["gallery"])
+
 # Include the router in the main app
 app.include_router(api_router)
 
