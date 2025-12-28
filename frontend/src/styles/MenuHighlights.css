@@ -1,5 +1,8 @@
 .menu-section {
   background: var(--color-primary);
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
 }
 
 .section-header {
@@ -10,6 +13,7 @@
 
 .section-header h2 {
   margin-bottom: var(--spacing-md);
+  word-wrap: break-word;
 }
 
 .section-header p {
@@ -21,6 +25,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: var(--spacing-xl);
+  width: 100%;
 }
 
 .menu-card {
