@@ -38,8 +38,8 @@ const Services = () => {
           ))}
         </div>
         <div className="service-note">
-          <p>♿ Wheelchair-accessible entrance available</p>
-          <p>💵 Price range: $10-20 per person</p>
+          <p>Wheelchair-accessible entrance available</p>
+          <p>Price range: $10-20 per person</p>
         </div>
       </div>
     </section>
