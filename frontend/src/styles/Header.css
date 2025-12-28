@@ -1,0 +1,130 @@
+.header {
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+  box-shadow: var(--shadow-sm);
+  z-index: 100;
+  transition: all 0.3s ease;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-lg) 0;
+  gap: var(--spacing-xl);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.logo h2 {
+  font-size: 1.75rem;
+  color: var(--color-black);
+  margin: 0;
+}
+
+.header-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: var(--color-black);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-lg);
+  align-items: center;
+}
+
+.nav button {
+  background: none;
+  border: none;
+  color: var(--color-black);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  padding: 0.5rem;
+}
+
+.nav button:hover {
+  color: var(--color-gray-600);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  color: var(--color-black);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    padding: var(--spacing-md) 0;
+  }
+
+  .logo h2 {
+    font-size: 1.25rem;
+  }
+
+  .header-badge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .header-badge span {
+    display: none;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--color-white);
+    flex-direction: column;
+    justify-content: center;
+    gap: var(--spacing-xl);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease;
+  }
+
+  .nav.nav-open {
+    transform: translateX(0);
+  }
+
+  .nav button {
+    font-size: 1.5rem;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+    z-index: 101;
+  }
+
+  .header-actions .btn-primary span {
+    display: none;
+  }
+
+  .header-actions .btn-primary {
+    padding: 10px;
+  }
+}
