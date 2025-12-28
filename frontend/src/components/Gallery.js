@@ -56,14 +56,16 @@ const Gallery = () => {
             opts={{
               align: 'start',
               loop: true,
+              skipSnaps: false,
+              dragFree: false,
             }}
             className="gallery-carousel"
           >
-            <CarouselContent>
+            <CarouselContent className="-ml-4">
               {galleryImages.map((image, index) => (
-                <CarouselItem key={image._id || index} className="md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={image._id || index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                   <div className="gallery-item">
-                    <img src={image.url} alt={image.alt} />
+                    <img src={image.url} alt={image.alt} loading="lazy" />
                   </div>
                 </CarouselItem>
               ))}
