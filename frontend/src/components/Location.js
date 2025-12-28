@@ -63,7 +63,7 @@ const Location = () => {
           </div>
           <div className="location-map">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.6848890156!2d-122.43547!3d37.762603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3d3b3b3b3b%3A0x3b3b3b3b3b3b3b3b!2sOrphan%20Andy's%20Restaurant!5e0!3m2!1sen!2sus!4v1234567890"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.7127817538567!2d-122.43514492346205!3d37.76256077197522!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808f7e3e1c7c7c7f%3A0x7c7c7c7c7c7c7c7c!2s3991%2017th%20St%2C%20San%20Francisco%2C%20CA%2094114!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
               width="100%"
               height="100%"
               style={{ border: 0, borderRadius: 'var(--border-radius-lg)' }}
