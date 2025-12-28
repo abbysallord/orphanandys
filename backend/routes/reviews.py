@@ -5,9 +5,7 @@ router = APIRouter()
 
 @router.get("/reviews/stats", response_model=ReviewStats)
 async def get_review_stats():
-    \"""
-    Get review statistics
-    \"""
+    """Get review statistics"""
     from server import db
     
     try:

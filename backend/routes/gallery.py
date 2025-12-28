@@ -6,9 +6,7 @@ router = APIRouter()
 
 @router.get("/gallery", response_model=List[GalleryImage])
 async def get_gallery_images():
-    \"""
-    Get all gallery images
-    \"""
+    """Get all gallery images"""
     from server import db
     
     try:

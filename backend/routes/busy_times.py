@@ -6,9 +6,7 @@ router = APIRouter()
 
 @router.get("/busy-times", response_model=List[BusyTime])
 async def get_busy_times():
-    \"""
-    Get busy times data
-    \"""
+    """Get busy times data"""
     from server import db
     
     try:
