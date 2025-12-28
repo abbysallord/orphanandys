@@ -152,15 +152,18 @@ backend:
 
   - task: "Gallery Images API"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/backend/routes/gallery.py"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
         comment: "Created GET /api/gallery endpoint to fetch 8 gallery images with URLs and alt text. Images include diner exterior, interior, and food photos."
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED - API tested successfully. Returns 200 status, valid JSON with exactly 8 gallery images. All required fields present (url, alt). Data types correct (both as strings). Sample: 'Orphan Andy's exterior at night'."
 
   - task: "Database Models"
     implemented: true
