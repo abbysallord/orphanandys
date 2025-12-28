@@ -1,0 +1,133 @@
+.reviews-section {
+  background: var(--color-primary);
+}
+
+.reviews-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+}
+
+.reviews-summary {
+  background: var(--color-white);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+}
+
+.rating-overview {
+  text-align: center;
+  padding-bottom: var(--spacing-xl);
+  border-bottom: 2px solid var(--color-gray-50);
+  margin-bottom: var(--spacing-xl);
+}
+
+.rating-number {
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-black);
+  font-family: var(--font-serif);
+  line-height: 1;
+}
+
+.rating-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin: var(--spacing-md) 0;
+}
+
+.rating-count {
+  color: var(--color-gray-600);
+  font-size: 1rem;
+}
+
+.rating-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.rating-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.rating-label {
+  min-width: 50px;
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.bar-container {
+  flex: 1;
+  height: 12px;
+  background: var(--color-gray-50);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  background: var(--color-black);
+  transition: width 0.6s ease;
+}
+
+.rating-bar .rating-count {
+  min-width: 50px;
+  text-align: right;
+  color: var(--color-gray-600);
+  font-size: 0.875rem;
+}
+
+.popular-keywords {
+  background: var(--color-white);
+  padding: var(--spacing-2xl);
+  border-radius: var(--border-radius-lg);
+}
+
+.popular-keywords h3 {
+  margin-bottom: var(--spacing-xl);
+  color: var(--color-black);
+}
+
+.keywords-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.keyword-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: var(--color-primary-dark);
+  border-radius: var(--border-radius);
+  transition: all 0.2s ease;
+}
+
+.keyword-tag:hover {
+  transform: translateX(4px);
+  box-shadow: var(--shadow-sm);
+}
+
+.keyword-word {
+  font-weight: 600;
+  color: var(--color-black);
+}
+
+.keyword-count {
+  background: var(--color-black);
+  color: white;
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .reviews-content {
+    grid-template-columns: 1fr;
+  }
+}
