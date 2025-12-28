@@ -61,9 +61,9 @@ const Gallery = () => {
             }}
             className="gallery-carousel"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent>
               {galleryImages.map((image, index) => (
-                <CarouselItem key={image._id || index} className="pl-4 md:basis-1/2 lg:basis-1/3">
+                <CarouselItem key={image._id || index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="gallery-item">
                     <img src={image.url} alt={image.alt} loading="lazy" />
                   </div>
