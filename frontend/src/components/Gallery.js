@@ -1,5 +1,5 @@
-import React from 'react';
-import { GALLERY_IMAGES } from '../data/mockData';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import {
   Carousel,
   CarouselContent,
@@ -9,7 +9,41 @@ import {
 } from './ui/carousel';
 import '../styles/Gallery.css';
 
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
+
 const Gallery = () => {
+  const [galleryImages, setGalleryImages] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchGalleryImages = async () => {
+      try {
+        const response = await axios.get(`${API}/gallery`);
+        setGalleryImages(response.data);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching gallery images:', err);
+        setLoading(false);
+      }
+    };
+
+    fetchGalleryImages();
+  }, []);
+
+  if (loading || galleryImages.length === 0) {
+    return (
+      <section id="gallery" className="section gallery-section">
+        <div className="container">
+          <div className="section-header">
+            <h2>Experience Orphan Andy's</h2>
+            <p>Loading gallery...</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section id="gallery" className="section gallery-section">
       <div className="container">
@@ -26,8 +60,8 @@ const Gallery = () => {
             className="gallery-carousel"
           >
             <CarouselContent>
-              {GALLERY_IMAGES.map((image, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+              {galleryImages.map((image, index) => (
+                <CarouselItem key={image._id || index} className="md:basis-1/2 lg:basis-1/3">
                   <div className="gallery-item">
                     <img src={image.url} alt={image.alt} />
                   </div>
