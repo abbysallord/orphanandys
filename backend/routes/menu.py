@@ -1,21 +1,17 @@
 from fastapi import APIRouter, HTTPException
-from motor.motor_asyncio import AsyncIOMotorClient
 from models.menu_item import MenuItem
 from typing import List
-import os
 
 router = APIRouter()
 
-# MongoDB connection
-mongo_url = os.environ['MONGO_URL']
-client = AsyncIOMotorClient(mongo_url)
-db = client[os.environ['DB_NAME']]
-
+# Database will be injected via dependency
 @router.get("/menu", response_model=List[MenuItem])
 async def get_menu_items():
-    """
+    \"""
     Get all menu items
-    """
+    \"""
+    from server import db
+    
     try:
         menu_items = await db.menu_items.find().to_list(100)
         
