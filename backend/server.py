@@ -9,6 +9,7 @@ from pydantic import BaseModel, Field, ConfigDict
 from typing import List
 import uuid
 from datetime import datetime, timezone
+from routes import menu, reviews, busy_times, gallery
 
 
 ROOT_DIR = Path(__file__).parent
