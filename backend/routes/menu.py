@@ -7,9 +7,9 @@ router = APIRouter()
 # Database will be injected via dependency
 @router.get("/menu", response_model=List[MenuItem])
 async def get_menu_items():
-    \"""
+    """
     Get all menu items
-    \"""
+    """
     from server import db
     
     try:
