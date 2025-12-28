@@ -5,6 +5,7 @@
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-3xl);
+  animation: fadeInUp 0.8s ease-out;
 }
 
 .section-header h2 {
@@ -26,29 +27,58 @@
   background: var(--color-white);
   border-radius: var(--border-radius-lg);
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  animation: fadeInUp 0.6s ease-out backwards;
 }
 
+.menu-card:nth-child(1) { animation-delay: 0.1s; }
+.menu-card:nth-child(2) { animation-delay: 0.15s; }
+.menu-card:nth-child(3) { animation-delay: 0.2s; }
+.menu-card:nth-child(4) { animation-delay: 0.25s; }
+.menu-card:nth-child(5) { animation-delay: 0.3s; }
+.menu-card:nth-child(6) { animation-delay: 0.35s; }
+.menu-card:nth-child(7) { animation-delay: 0.4s; }
+.menu-card:nth-child(8) { animation-delay: 0.45s; }
+.menu-card:nth-child(9) { animation-delay: 0.5s; }
+
 .menu-card:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
 }
 
 .menu-image {
   width: 100%;
   height: 250px;
   overflow: hidden;
+  position: relative;
+}
+
+.menu-image::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 30%;
+  background: linear-gradient(to top, rgba(0,0,0,0.1), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-card:hover .menu-image::after {
+  opacity: 1;
 }
 
 .menu-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .menu-card:hover .menu-image img {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
 .menu-content {
@@ -59,22 +89,45 @@
   font-size: 1.5rem;
   margin-bottom: var(--spacing-sm);
   color: var(--color-black);
+  transition: color 0.3s ease;
+}
+
+.menu-card:hover .menu-content h3 {
+  color: var(--color-gray-900);
 }
 
 .menu-content p {
   color: var(--color-gray-600);
   margin-bottom: var(--spacing-md);
   font-size: 1rem;
+  line-height: 1.6;
 }
 
 .menu-price {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-black);
+  font-family: var(--font-serif);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 768px) {
   .menu-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-lg);
+  }
+
+  .menu-content {
+    padding: var(--spacing-lg);
   }
 }
