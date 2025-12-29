@@ -102,6 +102,16 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+# Custom exception handlers for production
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    """Handle unexpected exceptions without exposing internal details"""
+    logger.error(f"Unhandled exception: {str(exc)}", exc_info=True)
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error. Please try again later."}
+    )
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
