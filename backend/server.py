@@ -77,12 +77,22 @@ api_router.include_router(gallery.router, tags=["gallery"])
 # Include the router in the main app
 app.include_router(api_router)
 
+# Security middleware (must be added before CORS)
+app.add_middleware(SecurityHeadersMiddleware)
+
+# CORS middleware with restricted origins for production
+allowed_origins = os.environ.get('CORS_ORIGINS', '*')
+if allowed_origins == '*':
+    logging.warning("CORS is set to allow all origins (*). This should be restricted in production.")
+
 app.add_middleware(
     CORSMiddleware,
     allow_credentials=True,
-    allow_origins=os.environ.get('CORS_ORIGINS', '*').split(','),
-    allow_methods=["*"],
+    allow_origins=allowed_origins.split(',') if allowed_origins != '*' else ["*"],
+    allow_methods=["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allow_headers=["*"],
+    expose_headers=["Content-Range", "X-Content-Range"],
+    max_age=3600,
 )
 
 # Configure logging
