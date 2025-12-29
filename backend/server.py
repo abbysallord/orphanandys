@@ -10,6 +10,7 @@ from typing import List
 import uuid
 from datetime import datetime, timezone
 from routes import menu, reviews, busy_times, gallery
+from middleware.security import SecurityHeadersMiddleware
 
 
 ROOT_DIR = Path(__file__).parent
